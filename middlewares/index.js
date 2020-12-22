@@ -1,5 +1,5 @@
-const defaultMiddlerware = require("./default");
+import defaultMiddlerware from "./default";
 
-module.exports = function registerMiddleware(server) {
+export default function registerMiddleware(server) {
     defaultMiddlerware(server);
 };

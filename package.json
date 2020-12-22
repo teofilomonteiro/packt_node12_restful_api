@@ -2,9 +2,18 @@
   "name": "node12_restful_api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start8": "node -r esm .",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "debug": "DEBUG=* node -r esm .",
+    "dev": "node -r esm ./node_modules/nodemon/bin/nodemon.js .",
+    "test": "mocha ./test/*"
+  },
+  "mocha": {
+    "require": [
+      "esm"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -12,8 +21,15 @@
   "dependencies": {
     "cors": "^2.8.5",
     "eslint": "^7.16.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "helmet": "^4.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "pm2": "^4.5.1",
+    "supertest": "^6.0.1"
   }
 }
